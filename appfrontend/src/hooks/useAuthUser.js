@@ -15,7 +15,6 @@ export const useAuthUser = () => {
 
   onMount(() => {
     onAuthStateChanged(auth, (user) => {
-      console.log(user);
       let userLogged = user == null ? false : true;
 
       // SET INFO USER IN STATE GLOBAL
@@ -26,7 +25,7 @@ export const useAuthUser = () => {
         showGlobalComponent.set(false);
         navigate("/login");
       } else {
-        if (pathname === "/login" || "/register") {
+        if (pathname === "/login" || pathname === "/register") {
           showGlobalComponent.set(true);
           navigate("/");
         }
