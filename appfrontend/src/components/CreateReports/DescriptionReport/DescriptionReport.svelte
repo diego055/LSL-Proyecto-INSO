@@ -87,14 +87,7 @@
     />
   </div>
   <br />
-  <div class="grid-option">
-    <div class="right">
-      <Button classNew="black" text="Atrás" />
-    </div>
-    <div class="left">
-      <Button classNew="black" text="Guardar" />
-    </div>
-  </div>
+
 </div>
 
 <style>
@@ -119,11 +112,5 @@
     border-color: rgba(0, 0, 0, 0.1);
     -webkit-box-shadow: 0 0 0 4px rgba(234, 76, 137, 0.1);
     box-shadow: 0 0 0 4px rgba(234, 76, 137, 0.1);
-  }
-
-  /* GRID OPTION */
-  .grid-option {
-    display: grid;
-    grid-template-columns: 50% 50%;
   }
 </style>

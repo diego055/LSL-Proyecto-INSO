@@ -1,9 +1,9 @@
 <script>
   import { Router, Route } from "svelte-navigator";
   import Navbar from "./components/Navbar/Navbar.svelte";
-  import Register from "./components/Register/Register.svelte";
-  import Login from "./components/Login/Login.svelte";
-  import Home from "./components/Home/Home.svelte";
+  import Register from "./Pages/Register/Register.svelte";
+  import Login from "./Pages/Login/Login.svelte";
+  import Home from "./Pages/Home/Home.svelte";
   import CreateReports from "./components/CreateReports/CreateReports.svelte";
 </script>
 

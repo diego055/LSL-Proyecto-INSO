@@ -5,9 +5,13 @@
 
   let numberPage = 1;
 
-  const changePage = () => {
+  const changePageBefore = () => {
+    numberPage = numberPage - 1;
+  };
+  const changePageLater = () => {
     numberPage = numberPage + 1;
   };
+  $: console.log(numberPage);
 </script>
 
 <div class="box-report">
@@ -29,13 +33,26 @@
       </div>
       <br />
       <div class="left">
-        <Button classNew="black" text="Siguiente" newFuntion={changePage} />
+        <Button
+          classNew="black"
+          text="Siguiente"
+          newFuntion={changePageLater}
+        />
       </div>
     </div>
   {/if}
 
+  <!-- PAGINA 1 -->
   {#if numberPage === 2}
     <DescriptionReport />
+    <div class="grid-option">
+      <div class="right">
+        <Button classNew="black" text="Atrás" newFuntion={changePageBefore} />
+      </div>
+      <div class="left">
+        <Button classNew="black" text="Guardar" />
+      </div>
+    </div>
   {/if}
 </div>
 
@@ -46,5 +63,11 @@
     width: 100%;
     max-width: 600px;
     margin: auto;
+  }
+
+  /* GRID OPTION */
+  .grid-option {
+    display: grid;
+    grid-template-columns: 50% 50%;
   }
 </style>

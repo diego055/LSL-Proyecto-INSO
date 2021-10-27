@@ -1,6 +1,6 @@
 <script>
   import { useNavigate } from "svelte-navigator";
-  import { auth } from "../../../../firebase";
+  import { auth } from "../../../firebase";
   import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
   const provider = new GoogleAuthProvider();

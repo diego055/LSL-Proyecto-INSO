@@ -2,8 +2,8 @@
   import { auth } from "../../../firebase";
   import { createUserWithEmailAndPassword } from "firebase/auth";
   import { useNavigate, Link } from "svelte-navigator";
-  import ButtonGoogle from "../Login/ButtonGoogle/ButtonGoogle.svelte";
-  import Notificacion from "../Notification/Notificacion.svelte";
+  import ButtonGoogle from "../../components/ButtonGoogle/ButtonGoogle.svelte";
+  import Notificacion from "../../components/Notification/Notificacion.svelte";
   let credentials = {
     email: "",
     password: "",

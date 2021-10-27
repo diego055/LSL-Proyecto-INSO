@@ -1,5 +1,5 @@
 <script>
-  import Button from "../../Button/Button.svelte";
+  import Button from "../../../components/Button/Button.svelte";
   import { Link } from "svelte-navigator";
 </script>
 
