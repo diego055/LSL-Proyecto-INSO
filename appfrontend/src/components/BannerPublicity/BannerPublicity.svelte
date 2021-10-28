@@ -41,7 +41,7 @@
 
 <style>
   .selector {
-    background-image: url(./community.jpg);
+    background-image: url(./community.jpeg);
     background-size: cover;
     background-position: center;
     width: 90%;

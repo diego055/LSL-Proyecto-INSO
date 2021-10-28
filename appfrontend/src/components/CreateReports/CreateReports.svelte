@@ -2,18 +2,75 @@
   import Button from "../Button/Button.svelte";
   import DescriptionReport from "./DescriptionReport/DescriptionReport.svelte";
   import OptionReports from "./OptionReports/OptionReports.svelte";
+  import { newReport } from "../../store/newReport";
+  import { infoUser } from "../../store/infoUser";
+  import { getDatabase, ref, push, query, orderByKey } from "firebase/database";
+  import Notificacion from "../Notification/Notificacion.svelte";
+  import { useNavigate } from "svelte-navigator";
+
+  const navigate = useNavigate();
 
   let numberPage = 1;
+  const changePageBefore = () => (numberPage = numberPage - 1);
+  const changePageLater = () => (numberPage = numberPage + 1);
 
-  const changePageBefore = () => {
-    numberPage = numberPage - 1;
+  let typeReport = "";
+
+  newReport.subscribe((info) => (typeReport = info.type));
+
+  // SAVE USERID IN REPORT
+
+  infoUser.subscribe(
+    (info) => ($newReport = { ...$newReport, idAuthor: info["uid"] })
+  );
+
+  // SAVE LOCATION IN STATE GLOBAL
+
+  const getLocation = () => {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      $newReport = {
+        ...$newReport,
+        locate: {
+          lat: position.coords.latitude,
+          long: position.coords.longitude,
+          address: "Urbanizacion El Sauce",
+        },
+      };
+    });
   };
-  const changePageLater = () => {
-    numberPage = numberPage + 1;
+
+  // NOTIFICATION
+
+  let messageNotification = "";
+  let showNotification = false;
+
+  const showMessageFunction = (message) => {
+    messageNotification = message;
+    showNotification = true;
+    setTimeout(function () {
+      showNotification = false;
+      navigate("/");
+    }, 2800);
   };
-  $: console.log(numberPage);
+
+  // SAVE REPORT IN REALTIME DATABASE
+
+  let infoReport;
+  newReport.subscribe((info) => (infoReport = info));
+
+  const saveReportinDB = async () => {
+    getLocation();
+    try {
+      const db = getDatabase();
+      await push(ref(db, "reportes/"), infoReport);
+      showMessageFunction("¡Reporte registrado!");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 </script>
 
+<Notificacion show={showNotification} message={messageNotification} />
 <div class="box-report">
   <!-- PAGINA 1 -->
   {#if numberPage === 1}
@@ -32,13 +89,15 @@
         />
       </div>
       <br />
-      <div class="left">
-        <Button
-          classNew="black"
-          text="Siguiente"
-          newFuntion={changePageLater}
-        />
-      </div>
+      {#if typeReport !== ""}
+        <div class="left">
+          <Button
+            classNew="black"
+            text="Siguiente"
+            newFuntion={changePageLater}
+          />
+        </div>
+      {/if}
     </div>
   {/if}
 
@@ -50,7 +109,11 @@
         <Button classNew="black" text="Atrás" newFuntion={changePageBefore} />
       </div>
       <div class="left">
-        <Button classNew="black" text="Guardar" />
+        <Button
+          classNew="black"
+          text="Guardar"
+          newFuntion={() => saveReportinDB()}
+        />
       </div>
     </div>
   {/if}

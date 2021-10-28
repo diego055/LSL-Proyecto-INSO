@@ -5,7 +5,8 @@
   import Login from "./Pages/Login/Login.svelte";
   import Home from "./Pages/Home/Home.svelte";
   import CreateReports from "./components/CreateReports/CreateReports.svelte";
-</script>
+  import CommunityPersonal from "./components/CommunityPersonal/CommunityPersonal.svelte";
+  </script>
 
 <div>
   <Router>
@@ -17,6 +18,7 @@
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
       <Route path="/nuevo/reporte" component={CreateReports} />
+      <Route path="/perfil" component={CommunityPersonal} />
     </div>
   </Router>
 </div>

@@ -5,31 +5,28 @@
   <br />
   <div class="box-advantage">
     <div class="card-advantage">
-      <h4>Title</h4>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, magni
-        blanditiis neque error
+        Contamos con una interfaz simple que no deja de ser eficiente para
+        elaborar un reporte útil.
       </p>
     </div>
     <div class="card-advantage">
-      <h4>Title</h4>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, magni
-        blanditiis neque error
+        Buscamos acortar el trayecto y con ello el lapso de tiempo en que tu
+        problema sea resuelto.
       </p>
     </div>
     <div class="card-advantage">
-      <h4>Title</h4>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, magni
-        blanditiis neque error
+        Luego de hacer tu reporte puedes verificar las veces que desees que fue
+        realizado con éxito entrando a tu perfil.
       </p>
     </div>
     <div class="card-advantage">
-      <h4>Title</h4>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, magni
-        blanditiis neque error
+        Somos una compañía que tiene la capacidad de expandir mucho este
+        concepto trayendote más herramientas y ventajas para futuras
+        problemáticas en tu comunidad.
       </p>
     </div>
   </div>
@@ -44,15 +41,12 @@
   }
 
   .card-advantage {
-    width: 300px;
+    width: 320px;
     height: 140px;
     padding: 10px;
     border: 0.4px solid rgb(229, 228, 238);
     transition: 0.3s;
     cursor: pointer;
-  }
-  .card-advantage > h4 {
-    font-size: 18px;
   }
 
   .card-advantage > p {

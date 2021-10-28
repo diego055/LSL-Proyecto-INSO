@@ -3,7 +3,7 @@
 
   let imageSelected = 0;
   let imageBinary;
-
+  
   $: {
     const reader = new FileReader();
     reader.readAsDataURL(images[imageSelected]);

@@ -16,9 +16,9 @@
       </div>
       <div class="center">
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta facere
-          voluptate quam ab, nostrum dolore aut impedit nobis. Quaerat vero
-          facere saepe est totam optio dolor reiciendis doloribus maxime ea!
+          Somos una compañía dedicada a la creación y distribución de reportes
+          y/o denuncias sobre problemas en tu comunidad teniendo un contacto
+          seguro con las auroridades que correspondan al problema.
         </p>
       </div>
       <div class="center">

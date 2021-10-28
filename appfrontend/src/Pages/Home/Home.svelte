@@ -3,7 +3,7 @@
 
   import ButtonOptions from "../../components/BannerPublicity/ButtonsOptions/ButtonOptions.svelte";
 
-  import CardsReports from "../../components/CardsReports/CardsReports.svelte";
+  import CommunityReports from "../../components/CommunityReports/CommunityReports.svelte";
   import Search from "../../components/Search/Search.svelte";
 </script>
 
@@ -11,5 +11,5 @@
   <Search />
   <BannerPublicity />
   <ButtonOptions />
-  <CardsReports />
+  <CommunityReports />
 </div>

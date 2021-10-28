@@ -2,6 +2,7 @@
   import Notificacion from "../../Notification/Notificacion.svelte";
   import Button from "../../Button/Button.svelte";
   import SliderImages from "../SliderImages/SliderImages.svelte";
+  import { newReport } from "../../../store/newReport";
 
   let inputRef;
 
@@ -12,6 +13,8 @@
 
   let messageNotification = "";
   let showNotification = false;
+
+  // SHOW MESSAGE VALIDATION
   const showMessageFunction = (message) => {
     messageNotification = message;
     showNotification = true;
@@ -19,7 +22,7 @@
       showNotification = false;
     }, 2800);
   };
-
+  // SAVE IMAGES IN STATE
   const readImages = (e) => {
     e.preventDefault();
 
@@ -36,31 +39,7 @@
   <div class="center">
     <h2>Toma una imagen del problema</h2>
   </div>
-  {#if imagesSelected.length === 0}
-    <div class="center">
-      <svg
-        aria-hidden="true"
-        focusable="false"
-        data-prefix="fad"
-        data-icon="images"
-        role="img"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 576 512"
-        height="250px"
-        width="250px"
-        fill="transparent"
-        ><g
-          ><path
-            fill="#3F3D56"
-            d="M424.49 120.48a12 12 0 0 0-17 0L272 256l-39.51-39.52a12 12 0 0 0-17 0L160 272v48h352V208zM64 336V128H48a48 48 0 0 0-48 48v256a48 48 0 0 0 48 48h384a48 48 0 0 0 48-48v-16H144a80.09 80.09 0 0 1-80-80z"
-          /><path
-            fill="#FFFBE1"
-            d="M528 32H144a48 48 0 0 0-48 48v256a48 48 0 0 0 48 48h384a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48zM208 80a48 48 0 1 1-48 48 48 48 0 0 1 48-48zm304 240H160v-48l55.52-55.52a12 12 0 0 1 17 0L272 256l135.52-135.52a12 12 0 0 1 17 0L512 208z"
-          /></g
-        ></svg
-      >
-    </div>
-  {:else}
+  {#if imagesSelected.length > 0}
     <SliderImages images={imagesSelected} />
   {/if}
 
@@ -77,17 +56,27 @@
     on:change={readImages}
   />
   <div class="center">
+    <input
+      name="title"
+      class="form-input"
+      placeholder="Titulo"
+      on:change={(e) =>
+        ($newReport = { ...$newReport, [e.target["name"]]: e.target["value"] })}
+    />
+  </div>
+  <div class="center">
     <textarea
-      name="description"
+      name="dsc"
       class="form-input"
       id=""
       cols="50"
       rows="10"
       placeholder="Descripción"
+      on:change={(e) =>
+        ($newReport = { ...$newReport, [e.target["name"]]: e.target["value"] })}
     />
   </div>
   <br />
-
 </div>
 
 <style>

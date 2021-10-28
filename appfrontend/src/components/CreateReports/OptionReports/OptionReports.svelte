@@ -1,5 +1,17 @@
 <script>
   import Button from "../../Button/Button.svelte";
+  import { newReport } from "../../../store/newReport";
+
+  const updateState = (value) => {
+    $newReport = {
+      ...$newReport,
+      type: value,
+    };
+  };
+
+  let optionSelected = "";
+
+  newReport.subscribe((info) => (optionSelected = info.type));
 </script>
 
 <div>
@@ -8,8 +20,20 @@
   </div>
   <br />
   <div class="center">
-    <Button classNew="black" text="Sustitución" />
-    <Button classNew="black" text="Reparación" />
-    <Button classNew="black" text="Petición" />
+    <Button
+      classNew={optionSelected === "Sustitución" ? "blue" : "black"}
+      text="Sustitución"
+      newFuntion={() => updateState("Sustitución")}
+    />
+    <Button
+      classNew={optionSelected === "Reparación" ? "blue" : "black"}
+      text="Reparación"
+      newFuntion={() => updateState("Reparación")}
+    />
+    <Button
+      classNew={optionSelected === "Petición" ? "blue" : "black"}
+      text="Petición"
+      newFuntion={() => updateState("Petición")}
+    />
   </div>
 </div>

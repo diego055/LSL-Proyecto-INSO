@@ -14,7 +14,7 @@ import microsoftedge from "../../../images/microsoft-edge.svg";
       </div>
       <div class="grid-navigators">
         <div>
-          <img src={chrome} alt="" height="50px" width="50px" class="float-chrome ">
+          <img src={chrome} alt="" height="50px" width="50px" class="float-chrome">
         </div>
         <div>
           <img src={firefox} alt="" height="50px" width="50px" class="float-firefox">
