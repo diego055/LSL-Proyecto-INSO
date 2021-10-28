@@ -1,5 +1,6 @@
 <script>
   import { onMount } from "svelte";
+  import reportImage from "./reportImage.jpg";
   const url = "https://proyecto-diego-390eb-default-rtdb.firebaseio.com/";
   let loading = false;
   let reports = [];
@@ -58,7 +59,7 @@
         <div class="card-advantage">
           <div>
             <img
-              src="https://www.102nueve.com/wp-content/uploads/2021/04/Baches-780x470.jpg"
+              src={reportImage}
               alt=""
               height="90px"
               width="90px"

@@ -5,7 +5,7 @@ export const newReport = writable({
   title: "",
   dsc: "",
   type: "",
-  date: new Date().getTime(),
+  date: new Date().toDateString(),
   imgs: {
     img1: "",
     img2: "",

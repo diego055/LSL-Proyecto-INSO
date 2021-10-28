@@ -8,30 +8,6 @@
 
   let loading = false;
   let reports = [];
-
-  const meses = [
-    "Enero",
-    "Febrero",
-    "Marzo",
-    "Abril",
-    "Mayo",
-    "Junio",
-    "Julio",
-    "Agosto",
-    "Septiembre",
-    "Octubre",
-    "Noviembre",
-    "Diciembre",
-  ];
-  const dias = [
-    "Domingo",
-    "Lunes",
-    "Martes",
-    "Miércoles",
-    "Jueves",
-    "Viernes",
-    "Sábado",
-  ];
 </script>
 
 <div class="container-left">
@@ -61,13 +37,7 @@
 
             <div class="card-body">
               <p class="date">
-                {dias[new Date(report[1].date).getDay()] +
-                  " " +
-                  new Date(report[1].date).getDate() +
-                  " de " +
-                  meses[new Date(report[1].date).getMonth()] +
-                  " de " +
-                  new Date(report[1].date).getFullYear()}
+                {report[1].date}
               </p>
               <h4>{report[1].title}</h4>
               <p class="description-problem">
